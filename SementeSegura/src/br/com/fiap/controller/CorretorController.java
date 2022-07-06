@@ -26,7 +26,7 @@ public class CorretorController {
 		List<Corretor> corretor = this.corretorDAO.select();
 		
 		for(Corretor corretores:corretor) {
-			System.out.println("Código: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor()  + "\t| Telefone: " + corretores.getNrTelCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+			System.out.println("Codigo: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor()  + "\t| Telefone: " + corretores.getNrTelCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
 		}
 		
 	}
@@ -35,7 +35,10 @@ public class CorretorController {
 		List<Corretor> corretor = this.corretorDAO.selectSalarioMaior(salario);
 		
 		for(Corretor corretores:corretor) {
-			System.out.println("Código: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+			System.out.println("Codigo: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+		}
+		if(corretor.size() <= 0) {
+			System.out.println("Nao foi encontrado corretores com um salario acima do valor digitado.");
 		}
 		
 	}
@@ -44,7 +47,10 @@ public class CorretorController {
 		List<Corretor> corretor = this.corretorDAO.selectSalarioMenor(salario);
 		
 		for(Corretor corretores:corretor) {
-			System.out.println("Código: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+			System.out.println("Codigo: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+		}
+		if(corretor.size() <= 0) {
+			System.out.println("Nao foi encontrado corretores com um salario abaixo do valor digitado.");
 		}
 		
 	}
@@ -56,7 +62,7 @@ public class CorretorController {
 	
 	public void delete(int cd) {
 		this.corretorDAO.excluir(cd);
-		System.out.println("Corretor");
+		System.out.println("Corretor removido.");
 	}
 	
 }

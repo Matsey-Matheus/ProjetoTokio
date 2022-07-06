@@ -1,9 +1,6 @@
 package br.com.fiap.view;
 
 import java.sql.SQLException;
-import java.util.List;
-
-import br.com.fiap.controller.ApoliceController;
 import br.com.fiap.controller.ClienteController;
 import br.com.fiap.controller.ContatoClienteController;
 import br.com.fiap.controller.ContratoController;
@@ -11,7 +8,6 @@ import br.com.fiap.controller.CorretorController;
 import br.com.fiap.controller.SaudeClienteController;
 import br.com.fiap.controller.SeguroVidaController;
 import br.com.fiap.data.Data;
-import br.com.fiap.model.Apolice;
 import br.com.fiap.model.Cliente;
 import br.com.fiap.model.ContatoCliente;
 import br.com.fiap.model.Contrato;
@@ -43,10 +39,7 @@ public class Executavel {
 		SaudeCliente saudeCliente = new SaudeCliente("Samuca", "Paraquedismo", "Anemia", 'S', 2);
 		SaudeClienteController sauController = new SaudeClienteController();
 		
-		Apolice apolice = new Apolice(1, "Boleto", data.dataHoje(), "5832394-1", 3, 200);
-		ApoliceController apoController = new ApoliceController();
-		
-		
+		corController.selectSalarioMenor(2000);
 		
 	}
 
