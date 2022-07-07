@@ -70,7 +70,7 @@ public class ContratoDAO {
 		stmt.setInt(1, cd);
 		ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+		if (rs.next()) {
 			contrato = new Contrato(rs.getString("ds_ass_cliente"),
 					rs.getString("ds_ass_corretor"), rs.getDate("dt_inicio_contrato"), rs.getDate("dt_fim_contrato"),
 					rs.getInt("cd_cliente"), rs.getInt("cd_corretor"), rs.getInt("cd_seguro_vida"));
@@ -79,6 +79,8 @@ public class ContratoDAO {
 					+ rs.getString("ds_ass_corretor") + "\t" + sdf.format(rs.getDate("dt_inicio_contrato")) + "\t"
 					+ rs.getDate("dt_fim_contrato"));
 
+		} else {
+			System.out.println("Esse numero de contrato nao existe.");
 		}
 
 		rs.close();
@@ -168,6 +170,31 @@ public class ContratoDAO {
 
 			PreparedStatement stmt = conexao.prepareStatement(sql);
 			stmt.setInt(1, cdCorretor);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Contrato contrato = new Contrato(null, null, null, null, 0, 0, 0);
+				contrato.setDsAssCliente(rs.getString("ds_ass_cliente"));
+				contrato.setDsAssCorretor(rs.getString("ds_ass_corretor"));
+				contrato.setDtInicioContrato(rs.getDate("dt_inicio_contrato"));
+				contrato.setCdCorretor(rs.getInt("cd_corretor"));
+				contrato.setCdContrato(rs.getInt("cd_contrato"));
+				contratos.add(contrato);
+			}
+			stmt.close();
+			rs.close();
+			return contratos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<Contrato> listarContratoAssegurados() {
+		List<Contrato> contratos = new ArrayList<Contrato>();
+		try {
+			String sql = "SELECT * FROM t_contrato";
+
+			PreparedStatement stmt = conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

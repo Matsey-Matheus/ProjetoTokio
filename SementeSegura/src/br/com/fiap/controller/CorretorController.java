@@ -26,7 +26,7 @@ public class CorretorController {
 		List<Corretor> corretor = this.corretorDAO.select();
 		
 		for(Corretor corretores:corretor) {
-			System.out.println("Codigo: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor()  + "\t| Telefone: " + corretores.getNrTelCorretor() + "\t| Salario: " + corretores.getVlSalarioCorretor());
+			System.out.println("Codigo: " + corretores.getCdCorretor() + "\t| Nome: " + corretores.getNmCorretor() + "\t| CPF: " + corretores.getNrCpfCorretor()  + "\t| Telefone: " + corretores.getNrTelCorretor());
 		}
 		
 	}

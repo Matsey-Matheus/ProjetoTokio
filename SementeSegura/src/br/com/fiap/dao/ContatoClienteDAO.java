@@ -65,6 +65,40 @@ public class ContatoClienteDAO {
 		return contatos;
 	}
 	
+	public void selectByCd(int cd) throws SQLException {
+
+		ContatoCliente contato = null;
+		String sql = "Select * from t_contato_cliente where cd_cliente=?";
+		PreparedStatement stmt = conexao.prepareStatement(sql);
+		stmt.setInt(1, cd);
+		ResultSet rs = stmt.executeQuery();
+
+		if (rs.next()) {
+			contato = new ContatoCliente(null, 0, null, null, 0, null, null, null, null, null, 0);
+			contato.setCdContatoCliente(rs.getInt("cd_contato_cliente"));
+			contato.setNmRuaCliente(rs.getString("nm_rua_cliente"));
+			contato.setNrMoradiaCliente(rs.getInt("nr_moradia_cliente"));
+			contato.setNrCepCliente(rs.getString("nr_cep_cliente"));
+			contato.setDsComplementoClinte(rs.getString("ds_complemento_cliente"));
+			contato.setNmBairroCliente(rs.getString("nm_bairro_cliente"));
+			contato.setNmCidadeCliente(rs.getString("nm_cidade_cliente"));
+			contato.setNmEstadoCliente(rs.getString("nm_estado_cliente"));
+			contato.setDsEmilCliente(rs.getString("ds_email_cliente"));
+			contato.setNrCelCliente(rs.getInt("nr_cel_cliente"));
+			contato.setNrTelCliente(rs.getString("nr_tel_cliente"));
+			contato.setCdCliente(rs.getInt("cd_cliente"));
+
+			System.out.println("Cidade: " + rs.getString("nm_cidade_cliente") + "\t| CEP: " + rs.getString("nr_cep_cliente") + "\t| Email: " + rs.getString("ds_email_cliente") + "\t| Celular: " + rs.getInt("nr_cel_cliente") + "\t| Telefone: " + rs.getString("nr_tel_cliente")); 
+
+		} else {
+			System.out.println("O codigo do cliente digitado nao existe.");
+		}
+
+		rs.close();
+		stmt.close();
+
+	}
+	
 	public void update(ContatoCliente contato, int cd) throws SQLException {
 		String sql = "update t_contato_cliente set ds_email_cliente=?, nr_cel_cliente=?, nr_tel_cliente=?, nm_rua_cliente=?, nr_moradia_cliente=?, nr_cep_cliente=?, ds_complemento_cliente=?, nm_bairro_cliente=?, nm_cidade_cliente=?, nm_estado_cliente=?, cd_cliente=? where cd_contato_cliente=?";
 

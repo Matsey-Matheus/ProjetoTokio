@@ -73,7 +73,8 @@ public class ClienteDAO {
 		stmt.setInt(1, cd);
 		ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+		
+		if (rs.next()) {
 			cliente = new Cliente(rs.getString("nm_cliente"), rs.getString("nr_cpf_cliente"),
 					rs.getDate("dt_nasc_cliente"), rs.getString("ds_nacionali_cliente"), rs.getString("nr_rg_cliente"),
 					rs.getString("sg_genero_cliente").charAt(0), rs.getString("ds_profi_cliente"),
@@ -87,8 +88,10 @@ public class ClienteDAO {
 					+ rs.getString("ds_profi_cliente") + "\t" + rs.getString("ds_est_civ_cliente") + "\t"
 					+ rs.getDouble("vl_renda_cliente")); 
 
+		} else {
+			System.out.println("Nao foi encontrado nenhum cliente com esse codigo.");
 		}
-
+		
 		rs.close();
 		stmt.close();
 		return cliente;
@@ -104,7 +107,7 @@ public class ClienteDAO {
 		stmt.setString(1, name);
 		ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+		if (rs.next()) {
 			cliente = new Cliente(rs.getString("nm_cliente"), rs.getString("nr_cpf_cliente"),
 					rs.getDate("dt_nasc_cliente"), rs.getString("ds_nacionali_cliente"), rs.getString("nr_rg_cliente"),
 					rs.getString("sg_genero_cliente").charAt(0), rs.getString("ds_profi_cliente"),
@@ -116,6 +119,8 @@ public class ClienteDAO {
 					+ rs.getString("ds_profi_cliente") + "\t" + rs.getString("ds_est_civ_cliente") + "\t"
 					+ rs.getDouble("vl_renda_cliente"));
 
+		} else {
+			System.out.println("Nao foi encontrado nenhum cliente com esse nome.");
 		}
 
 		rs.close();
@@ -133,7 +138,7 @@ public class ClienteDAO {
 		stmt.setString(1, cpf);
 		ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+		if (rs.next()) {
 			cliente = new Cliente(rs.getString("nm_cliente"), rs.getString("nr_cpf_cliente"),
 					rs.getDate("dt_nasc_cliente"), rs.getString("ds_nacionali_cliente"), rs.getString("nr_rg_cliente"),
 					rs.getString("sg_genero_cliente").charAt(0), rs.getString("ds_profi_cliente"),
@@ -145,6 +150,8 @@ public class ClienteDAO {
 					+ rs.getString("ds_profi_cliente") + "\t" + rs.getString("ds_est_civ_cliente") + "\t"
 					+ rs.getDouble("vl_renda_cliente"));
 
+		} else {
+			System.out.println("Nao foi encontrado nenhum cliente com esse CPF.");
 		}
 
 		rs.close();
@@ -162,7 +169,7 @@ public class ClienteDAO {
 		stmt.setString(1, rg);
 		ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+		if (rs.next()) {
 			cliente = new Cliente(rs.getString("nm_cliente"), rs.getString("nr_cpf_cliente"),
 					rs.getDate("dt_nasc_cliente"), rs.getString("ds_nacionali_cliente"), rs.getString("nr_rg_cliente"),
 					rs.getString("sg_genero_cliente").charAt(0), rs.getString("ds_profi_cliente"),
@@ -174,6 +181,8 @@ public class ClienteDAO {
 					+ rs.getString("ds_profi_cliente") + "\t" + rs.getString("ds_est_civ_cliente") + "\t"
 					+ rs.getDouble("vl_renda_cliente"));
 
+		} else {
+			System.out.println("Nao foi encontrado nenhum cliente com esse RG.");
 		}
 
 		rs.close();

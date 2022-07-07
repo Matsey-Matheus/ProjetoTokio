@@ -22,9 +22,32 @@ public class ContratoController {
 		this.contratoDAO.insert(contrato);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-		System.out.println(contrato.getDsAssCliente() + " iniciou um contrato");
-		System.out.println("com o corretor(a) " + contrato.getDsAssCorretor() + " no dia "
-				+ sdf.format(contrato.getDtInicioContrato()) + ".");
+		switch (contrato.getCdSeguroVida()) {
+		case 1: {
+			System.out.println(contrato.getDsAssCliente() + " iniciou um contrato de " + "seguro 'Homem' ");
+			System.out.println("com o corretor(a) " + contrato.getDsAssCorretor() + " no dia "
+					+ sdf.format(contrato.getDtInicioContrato()) + ".");
+			break;
+		}
+		case 2: {
+			System.out.println(contrato.getDsAssCliente() + " iniciou um contrato de " + "seguro 'Mulher' ");
+			System.out.println("com o corretor(a) " + contrato.getDsAssCorretor() + " no dia "
+					+ sdf.format(contrato.getDtInicioContrato()) + ".");
+			break;
+		}
+		case 3: {
+			System.out.println(contrato.getDsAssCliente() + " iniciou um contrato de " + "seguro 'Senior' ");
+			System.out.println("com o corretor(a) " + contrato.getDsAssCorretor() + " no dia "
+					+ sdf.format(contrato.getDtInicioContrato()) + ".");
+			break;
+		}
+		case 4: {
+			System.out.println(contrato.getDsAssCliente() + " iniciou um contrato de " + "seguro 'Familia' ");
+			System.out.println("com o corretor(a) " + contrato.getDsAssCorretor() + " no dia "
+					+ sdf.format(contrato.getDtInicioContrato()) + ".");
+			break;
+		}
+		}	
 	}
 
 	public void select() throws SQLException {
@@ -80,6 +103,10 @@ public class ContratoController {
 		
 		for(Contrato contrato:contratos) {
 			System.out.println("Codigo contrato: " + contrato.getCdContrato() + "\t| Corretor(a): " + contrato.getDsAssCorretor() + "\t| Cliente: " + contrato.getDsAssCliente() + "\t| Data do contrato: " + sdf.format(contrato.getDtInicioContrato()));
+		} 
+		
+		if(contratos.size() == 0) {
+			System.out.println("Esse corretor ainda nao tem contratos.");
 		}
 		
 	}
@@ -91,6 +118,17 @@ public class ContratoController {
 		for(Contrato contrato:contratos) {
 			System.out.println("Codigo contrato: " + contrato.getCdContrato() + "\t| Corretor(a): " + contrato.getDsAssCorretor() + "\t| Cliente: " + contrato.getDsAssCliente() + "\t| Data do contrato: " + sdf.format(contrato.getDtInicioContrato()));
 		}
+		
+		if(contratos.size() == 0) {
+			System.out.println("Esse corretor ainda nao tem contratos.");
+		}
+		
+	}
+	
+	public void listarTpSeguro() {
+		List<Contrato> contratos = this.contratoDAO.listarContratoAssegurados();
+		
+		System.out.println("Contratos totais: " + contratos.size());
 		
 	}
 	

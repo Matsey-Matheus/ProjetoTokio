@@ -25,13 +25,17 @@ public class ContatoClienteController {
 		List<ContatoCliente> contatos = this.contatoClienteDAO.select();
 		
 		for(ContatoCliente contato:contatos) {
-			System.out.println("Codigo: " + contato.getCdContatoCliente() + "\t| Numero celular: " + contato.getNrCelCliente() + "\t| Email: " + contato.getDsEmilCliente() + "\t| Cidade: " + contato.getNmCidadeCliente()  + "\t| CEP: " + contato.getNrCepCliente() + "\t| Codigo cliente: " + contato.getCdContatoCliente());
+			System.out.println("Codigo: " + contato.getCdContatoCliente() + "\t| Numero celular: " + contato.getNrCelCliente() + "\t| Email: " + contato.getDsEmilCliente() + "\t| Cidade: " + contato.getNmCidadeCliente()  + "\t| CEP: " + contato.getNrCepCliente() + "\t| Codigo cliente: " + contato.getCdCliente());
 		}
 	}
 	
 	public void update(ContatoCliente contato, int cd) throws SQLException {
 		this.contatoClienteDAO.update(contato, cd);
 		System.out.println("Update realizado.");
+	}
+	
+	public void selectByCdCliente(int cd) throws SQLException {
+		this.contatoClienteDAO.selectByCd(cd);
 	}
 	
 	public void delete(int cd) {

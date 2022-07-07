@@ -19,14 +19,14 @@ public class SaudeClienteController {
 	
 	public void insert(SaudeCliente saude) throws SQLException {
 		this.saudeClienteDAO.insert(saude);
-		System.out.println("Dados de saúde inseridos.");
+		System.out.println("Dados de saude inseridos.");
 	}
 	
 	public void select() throws SQLException {
 		List<SaudeCliente> saudes = this.saudeClienteDAO.select();
 		
 		for(SaudeCliente saude:saudes) {
-			System.out.println("Codigo: " + saude.getCdSaudeClinte() + "\t| Nome: " + saude.getNmAsseguradoSaude() + "\t| Descrição da doença: " + saude.getDsDoencaCliente() + "\t| Vicio: " + saude.getSgVicioCliente() + "\t| Codigo cliente: " + saude.getCdCliente());
+			System.out.println("Codigo: " + saude.getCdSaudeClinte() + "\t| Nome: " + saude.getNmAsseguradoSaude() + "\t| DescriÃ§Ã£o da doenÃ§a: " + saude.getDsDoencaCliente() + "\t| Vicio: " + saude.getSgVicioCliente() + "\t| Codigo cliente: " + saude.getCdCliente());
 		}
 		
 	}

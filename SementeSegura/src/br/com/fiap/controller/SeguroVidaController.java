@@ -21,7 +21,7 @@ public class SeguroVidaController {
 		
 		for(SeguroVida seguro:seguros) {
 
-				System.out.println("Seguro: " + seguro.getNmSeguroVida() + "\t| Valor: " + seguro.getVlSeguroVida() + "\t| Cobertura: " + seguro.getDsCobertura());
+				System.out.println("Codigo: " + seguro.getCdSeguroVida() + "\t| Seguro: " + seguro.getNmSeguroVida() + "\t| Valor: " + seguro.getVlSeguroVida() + "\t| Cobertura: " + seguro.getDsCobertura());
 		
 		}
 		

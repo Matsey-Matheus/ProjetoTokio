@@ -63,7 +63,7 @@ public class CorretorDAO {
 	public List<Corretor> selectSalarioMaior(double salario) throws SQLException {
 		
 		List<Corretor> corretores = new ArrayList<Corretor>();
-		String sql = "select cd_corretor, nm_corretor, NR_CPF_CORRETOR, VL_SALARIO_CORRETOR from t_corretor where VL_SALARIO_CORRETOR > ?";
+		String sql = "select cd_corretor, nm_corretor, NR_CPF_CORRETOR, VL_SALARIO_CORRETOR from t_corretor where VL_SALARIO_CORRETOR >= ?";
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		stmt.setDouble(1, salario);
 		ResultSet rs = stmt.executeQuery();
@@ -86,7 +86,7 @@ public class CorretorDAO {
 	public List<Corretor> selectSalarioMenor(double salario) throws SQLException {
 		
 		List<Corretor> corretores = new ArrayList<Corretor>();
-		String sql = "select cd_corretor, nm_corretor, NR_CPF_CORRETOR, VL_SALARIO_CORRETOR from t_corretor where VL_SALARIO_CORRETOR < ?";
+		String sql = "select cd_corretor, nm_corretor, NR_CPF_CORRETOR, VL_SALARIO_CORRETOR from t_corretor where VL_SALARIO_CORRETOR <= ?";
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		stmt.setDouble(1, salario);
 		ResultSet rs = stmt.executeQuery();

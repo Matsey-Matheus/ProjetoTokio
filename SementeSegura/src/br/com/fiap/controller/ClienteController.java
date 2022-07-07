@@ -24,14 +24,16 @@ public class ClienteController {
 
 	public int cdPorCPF(String cpf) throws SQLException {
 		return this.clienteDAO.clienteCD(cpf);
-		
 	}
 	
 	public void select() throws SQLException {
 		List<Cliente> clientes = clienteDAO.select();
 		
 		for(Cliente cliente:clientes) {
-			System.out.println("Código: " + cliente.getCdCliente() + "\tNome: " + cliente.getNmCliente() + "\tCPF: " + cliente.getNrCpfCliente());
+			System.out.println("Código: " + cliente.getCdCliente() + "\t| Nome: " + cliente.getNmCliente() + "\t| CPF: " + cliente.getNrCpfCliente());
+		}
+		if (clientes.size() == 0)  {
+			System.out.println("Nenhum cliente foi encontrado.");
 		}
 		
 	}
