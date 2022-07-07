@@ -61,9 +61,9 @@ public class Executavel {
 //		clienteController.selectByCpf(null); // SELECT POR CPF
 //		clienteController.selectByName(null); // SELECT POR NOME
 		// UPDATE CLIENTES
-//		clienteController.update(barbara, 36); // UPDATE CLIENTE
+//		clienteController.update(null, 0); // UPDATE CLIENTE
 		// DELETE CLIENTES
-//		clienteController.delete(36); // DELETAR CLIENTE
+//		clienteController.delete(0); // DELETAR CLIENTE
 		
 		// ---CONTATO---
 
@@ -72,11 +72,11 @@ public class Executavel {
 //		contatoController.insert(contatoBarbara); 
 		// SELECTS CONTATO
 //		contatoController.select(); // SELECT ALL
-//		contatoController.selectByCdCliente(37); // SELECT POR CD
+//		contatoController.selectByCdCliente(0); // SELECT POR CD
 		// UPDATE CONTATO (CONTATO E CD_CONTATO!)
 //		contatoController.update(null, 0); // UPDATE CONTATO
 		// DELETE
-//		contatoController.delete(10); // DELETAR CONTATO
+//		contatoController.delete(0); // DELETAR CONTATO
 		
 		// ---SAUDE CLIENTE---
 		
@@ -84,7 +84,7 @@ public class Executavel {
 //		saudeController.insert(saudeSamuel);
 //		saudeController.select(); // SELECT ALL
 //		saudeController.update(null, 0); // UPDATE SAUDE
-//		saudeController.delete(); // DELETAR SAUDE
+//		saudeController.delete(0); // DELETAR SAUDE
 		
 		// ---ESCOLHER CORRETOR E SEGURO DE SAUDE---
 //		corretorController.select(); // SELECT ALL 
@@ -97,7 +97,7 @@ public class Executavel {
 		// SELECT CONTRATO
 //		contratoController.select(); // SELECT ALL
 //		contratoController.selectByCd(0); // SELECT POR CD
-//		contratoController.listarPorCdCorretor(1); // MOSTRAR CORRETOR E SEUS CLIENTES POR CD_CORRETOR
+//		contratoController.listarPorCdCorretor(0); // MOSTRAR CORRETOR E SEUS CLIENTES POR CD_CORRETOR
 //		contratoController.listarTpSeguro(); // QUANTOS CONTRATOS TEMOS NO SISTEMA
 		// UPDATE
 //		contratoController.update(null, 0); // UPDATE CONTRATO
@@ -107,7 +107,7 @@ public class Executavel {
 		// ---AREA DE ADMINISTRAÇÃO DO CORRETOR---
 		
 		// CADASTRAR UM CORRETOR
-//		corretorController.insert(corretorMarcos); // INSERIR CORRETOR
+//		corretorController.insert(null); // INSERIR CORRETOR
 		// SELECT CORRETOR
 //		corretorController.select(); // SELECT ALL
 //		corretorController.selectSalarioMaior(0); // SELECIONAR SALARIO MAIOR QUE O VALOR DIGITADO
@@ -115,7 +115,7 @@ public class Executavel {
 		// UPDATE CORRETOR
 //		corretorController.update(null, 0); // UPDATE CORRETOR
 		// DELETE CORRETOR
-//		corretorController.delete(23); // DELETE CORRETOR
+//		corretorController.delete(0); // DELETE CORRETOR
 		
 	}
 
